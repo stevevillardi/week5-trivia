@@ -11,13 +11,73 @@
     <title>Trivia Game</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <h1>Select a Category</h1>
-        </div>
-        <div class="row" id="category-list">
-
-        </div>
+    <div class="container-fluid text-center">
+        <section id="category-display">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6 category">
+                    <h1 class="category">Select a Category</h1>
+                    <div id="category-list"></div>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+        </section>
+        <section id="question-display">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h2 id="cat-heading">Category</h2>
+                    <h2 id="question-heading">Question</h2>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <button class="answer btn btn-primary btn-block">Answer</button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <button class="answer btn btn-primary btn-block">Answer</button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <button class="answer btn btn-primary btn-block">Answer</button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <button class="answer btn btn-primary btn-block">Answer</button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h2 id="check-answer"></h2>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </section>
+        <section id="result-display">
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h2>Game Over!</h2>
+                        <h2 id="correct">Correct</h2>
+                        <button id="restart" class="btn btn-block btn-primary">Play Again!</button>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </section>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
