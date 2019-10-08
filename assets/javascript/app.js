@@ -15,11 +15,17 @@ $(document).ready(function(){
     let answerButtons = $(".answer");
     let resultDisplay = $("#result-display");
     let checkDisplay = $("#check-answer");
+    let questionProgress = $("#question-progress");
     let correct = 0;
 
     //hide qnuestion slides until ready to play
     questionDisplay.hide();
     resultDisplay.hide();
+
+    function updateProgress(index){
+        questionProgress.html(`Question ${index + 1} of ${questionPool.length}`)
+        questionProgress.css("width",(index + 1) * 10 + "%")
+    }
 
     //builds list items to create category buttons
     function buildCategories(categories){
@@ -61,12 +67,14 @@ $(document).ready(function(){
         questionDisplay.hide();
         resultDisplay.hide();
         categoryDisplay.show();
+        updateProgress(0);
         correct = 0;
     }
 
     //Take in array item and genreates quesiton to display on screen
     function displayQuestion(question){
         if(questionIndex < questionPool.length){
+            updateProgress(questionIndex);
             catHeading.html(`Selected Category: ${question.category.replace("Entertainment: ", "").replace("Science: ","")}`);
             questionHeading.html(question.question);
     
@@ -103,6 +111,7 @@ $(document).ready(function(){
         categoryDisplay.hide();
         questionDisplay.show();
         questionIndex = 0;
+        updateProgress(questionIndex);
         displayQuestion(questionPool[questionIndex]);
     }
 
