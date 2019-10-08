@@ -1,0 +1,8 @@
+#category-list li {
+    list-style: none;
+    cursor: pointer;
+}
+
+#category-list li:hover {
+    background-color: lightblue;
+}
