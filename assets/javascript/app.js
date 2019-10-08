@@ -2,6 +2,8 @@ $(document).ready(function(){
     //declare init variables
     const categoryURL = "https://opentdb.com/api_category.php";
     const questionURL="https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&category=";
+    const answerTime = 10; //amount of time to wait before time out on quesiton choice;
+    const reviewTime = 5; //amount of time to wait between questions
     
     let questionCategories;
     let questionPool;
