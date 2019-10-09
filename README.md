@@ -14,7 +14,7 @@ Pick from the selected categories shown to start a trivia game. Each game consis
 ### How it works
 - Questions are sourced from the https://opentdb.com trivia API
 - All questions are multiple choice with 4 choices to pick from
-- You have 10 seconds to make a selection but time runs out
+- You have 10 seconds to make a selection before time runs out
 
 ### Statistics
 - Total # of Wins
