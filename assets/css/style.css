@@ -71,10 +71,17 @@ padding-inline-start: 0px;
 #footer {
     position: fixed;
     bottom: 50px;
+    left: 15px;
     width: calc(100% - 30px);
+}
+#timer {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 75px;
+    margin-top: 5vh;
 
 }
-
 @media only screen and (max-width: 1300px) {
     #category-list li {
         width: 48%;

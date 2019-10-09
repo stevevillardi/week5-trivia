@@ -2,8 +2,8 @@ $(document).ready(function(){
     //declare init variables
     const categoryURL = "https://opentdb.com/api_category.php";
     const questionURL="https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&category=";
-    const answerTime = 10; //amount of time to wait before time out on quesiton choice;
-    const reviewTime = 5; //amount of time to wait between questions
+    const answerTime = 10000; //amount of time to wait before time out on quesiton choice;
+    const reviewTime = 5000; //amount of time to wait between questions
     
     let questionCategories;
     let questionPool;
@@ -43,6 +43,20 @@ $(document).ready(function(){
         console.log(`You picked: ${answer}`);
         console.log(`The answer was: ${questionPool[questionIndex].correct_answer}`);
         answerButtons.hide();
+
+        $('#timer').pietimer({
+            seconds: 5,
+            color: '#007bff',
+            height: 0,
+            width: 0
+        },
+        function(){
+            answerButtons.show();
+            checkDisplay.empty();
+            displayQuestion(questionPool[questionIndex]);
+        });
+        $('#timer').pietimer('start');
+
         if(answer === questionPool[questionIndex].correct_answer){
             console.log("Correct");
             checkDisplay.html(`You picked the correct answer! The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}</span>`)
@@ -58,13 +72,7 @@ $(document).ready(function(){
         questionIndex++ //incease index so we can process the next quesiton once this one is answered or runs out of time
         console.log(questionIndex);
         
-        var nextTimer = setTimeout(function(){
-            answerButtons.show();
-            checkDisplay.empty();
-            displayQuestion(questionPool[questionIndex]);
-        },5000);
     }
-
     function resetGame(){
         questionDisplay.hide();
         resultDisplay.hide();
@@ -86,14 +94,21 @@ $(document).ready(function(){
             answerButtons.each(function (index, data) {
                 $(data).html(answerList[index]);
             });
-            var quizTimer = setTimeout(function(){
-                checkAnswer("ran-out-of-time");
-            },10000);
 
             $('.answer').off().on('click', function(){
-                clearTimeout(quizTimer);
                 checkAnswer($(this).html());
             });
+
+            $('#timer').pietimer({
+                seconds: 10,
+                color: '#007bff',
+                height: 75,
+                width: 75
+            },
+            function(){
+                checkAnswer("ran-out-of-time");
+            });
+            $('#timer').pietimer('start');
         }
         else{
             //game is over display results
