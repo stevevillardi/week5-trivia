@@ -59,17 +59,17 @@ $(document).ready(function(){
 
         if(answer === questionPool[questionIndex].correct_answer){
             console.log("Correct");
-            checkDisplay.html(`You picked the correct answer! The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}</span>`)
+            checkDisplay.html(`You picked the correct answer!<br>The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}.</span>`)
             correct++
         }
         else if (answer === "ran-out-of-time"){
-            checkDisplay.html(`Sorry, time is up! The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}</span>`)
+            checkDisplay.html(`Sorry, time is up!<br>The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}.</span>`)
         }
         else {
             console.log("Wrong");
-            checkDisplay.html(`Sorry, you picked the wrong answer! The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}</span>`)
+            checkDisplay.html(`Sorry, you picked the wrong answer!<br>The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}.</span>`)
         }
-        questionIndex++ //incease index so we can process the next quesiton once this one is answered or runs out of time
+        questionIndex++ //incease index so we can process the next question once this one is answered or runs out of time
         console.log(questionIndex);
         
     }
@@ -96,6 +96,7 @@ $(document).ready(function(){
             });
 
             $('.answer').off().on('click', function(){
+                $('#timer').pietimer('pause');
                 checkAnswer($(this).html());
             });
 
@@ -143,7 +144,8 @@ $(document).ready(function(){
 
         //Loop through categories to build out ul list of available categories
         buildCategories(questionCategories);
-
+        $(".category").text("Select a Category");
+        
         $(document).on('click', '.categories', function(){
             console.log(`Selected Category: ${$(this).attr("data-id")}`);
             selectedCategory = $(this).attr("data-id");

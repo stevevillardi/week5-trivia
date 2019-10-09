@@ -89,7 +89,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             if (!this.is_paused) {
 							this.accrued_time = (new Date() - this.initial_time);
                 clearInterval(this.interval_id);
-                this.is_paused = true;
+                //this.is_paused = true;
             }
         },
 

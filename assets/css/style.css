@@ -3,7 +3,8 @@ html {
 }
 
 body {
-    background-color: white;
+    background-image: url(../images/dot-grid.png);
+    color: black;
 }
 
 #category-list li {
@@ -17,7 +18,7 @@ body {
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    color: #fff;
+    color: white;
 }
 
 #category-list ul {
@@ -25,7 +26,7 @@ padding-inline-start: 0px;
 }
 
 #category-list li:hover {
-    color: #fff;
+    color: white;
     background-color: #0069d9;
     border-color: #0062cc;
 }
@@ -47,7 +48,6 @@ padding-inline-start: 0px;
 .category {
     margin-top: 50px;
     margin-bottom: 20px;
-    background-color: white;
 }
 
 #cat-heading {
@@ -82,7 +82,7 @@ padding-inline-start: 0px;
     margin-top: 5vh;
 
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 800px) {
     #category-list li {
         width: 48%;
         font-size: 2vw;
