@@ -21,6 +21,9 @@ body {
     color: white;
 }
 
+.btn-group{
+    margin-bottom: 15px;
+}
 #category-list ul {
 padding-inline-start: 0px;
 }

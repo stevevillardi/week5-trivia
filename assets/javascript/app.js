@@ -1,7 +1,6 @@
 $(document).ready(function(){
     //declare init variables
     const categoryURL = "https://opentdb.com/api_category.php";
-    const questionURL="https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&category=";
     const answerTime = 10000; //amount of time to wait before time out on quesiton choice;
     const reviewTime = 5000; //amount of time to wait between questions
     
@@ -19,10 +18,29 @@ $(document).ready(function(){
     let checkDisplay = $("#check-answer");
     let questionProgress = $("#question-progress");
     let correct = 0;
+    let questionURL=`https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&category=`;
 
     //hide qnuestion slides until ready to play
     questionDisplay.hide();
     resultDisplay.hide();
+
+    $('.btn-group').off().on('click', function(){
+        setTimeout(function() {
+            let selectedDifficulty = $(".active")[0].innerText;
+            if (selectedDifficulty === "Hard Difficulty"){
+                questionURL=`https://opentdb.com/api.php?amount=10&difficulty=hard&type=multiple&category=`;
+            }
+            else if (selectedDifficulty === "Easy Difficulty"){
+                questionURL=`https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple&category=`;
+            }
+            else{
+                questionURL=`https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple&category=`;
+            }
+            console.log(difficulty);
+            console.log(questionURL);
+        },500);
+    });
+
 
     function updateProgress(index){
         questionProgress.html(`Question ${index + 1} of ${questionPool.length}`)
@@ -145,7 +163,7 @@ $(document).ready(function(){
         //Loop through categories to build out ul list of available categories
         buildCategories(questionCategories);
         $(".category").text("Select a Category");
-        
+
         $(document).on('click', '.categories', function(){
             console.log(`Selected Category: ${$(this).attr("data-id")}`);
             selectedCategory = $(this).attr("data-id");
