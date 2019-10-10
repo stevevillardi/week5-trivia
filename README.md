@@ -1,7 +1,7 @@
 # Trivia Game - Week 5 Homework Assignment
 
 ## Instructions
-Pick from the selected categories shown to start a trivia game. Each game consists of 10 questions.
+Pick from the available difficulties and categories shown to start a trivia game. Each game consists of 10 questions.
 
 ## Screenshots
 
@@ -23,6 +23,7 @@ Pick from the selected categories shown to start a trivia game. Each game consis
 
 ### Features
 - Supports up to 3,500+ trivia questions
+- 3 selectable difficulties to chose from (easy, medium and hard)
 - Timer countdown includes canvas pie timer to show how much time is left
 - Progress bars via bootstrap shows current question and total questions per round
 
