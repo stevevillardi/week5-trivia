@@ -1,8 +1,8 @@
 $(document).ready(function(){
     //declare init variables
     const categoryURL = "https://opentdb.com/api_category.php";
-    const answerTime = 10000; //amount of time to wait before time out on quesiton choice;
-    const reviewTime = 5000; //amount of time to wait between questions
+    const answerTime = 20; //amount of time to wait before time out on quesiton choice;
+    const reviewTime = 5; //amount of time to wait between questions
     
     let questionCategories;
     let questionPool;
@@ -63,7 +63,7 @@ $(document).ready(function(){
         answerButtons.hide();
 
         $('#timer').pietimer({
-            seconds: 5,
+            seconds: reviewTime,
             color: '#007bff',
             height: 0,
             width: 0
@@ -119,7 +119,7 @@ $(document).ready(function(){
             });
 
             $('#timer').pietimer({
-                seconds: 10,
+                seconds: answerTime,
                 color: '#007bff',
                 height: 75,
                 width: 75
