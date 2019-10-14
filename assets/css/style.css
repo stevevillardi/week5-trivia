@@ -44,8 +44,16 @@ padding-inline-start: 0px;
     border-radius: 25px;
 }
 
-.highlight {
+.highlight-correct {
     color: green;
+}
+
+.highlight-correct {
+    color: red;
+}
+
+.highlight-answer {
+    color: #007bff;
 }
 
 .category {

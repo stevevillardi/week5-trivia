@@ -43,7 +43,12 @@ $(document).ready(function(){
 
 
     function updateProgress(index){
-        questionProgress.html(`Question ${index + 1} of ${questionPool.length}`)
+        if(index > -1){
+            questionProgress.html(`Question ${index + 1} of ${questionPool.length}`)
+        }
+        else{
+            questionProgress.html(``)
+        }
         questionProgress.css("width",(index + 1) * 10 + "%")
     }
 
@@ -77,15 +82,15 @@ $(document).ready(function(){
 
         if(answer === questionPool[questionIndex].correct_answer){
             console.log("Correct");
-            checkDisplay.html(`You picked the correct answer!<br>The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}.</span>`)
+            checkDisplay.html(`You picked the <span class="highlight-correct">correct</span> answer!<br>The answer was <span class="highlight-answer">${questionPool[questionIndex].correct_answer}.</span>`)
             correct++
         }
         else if (answer === "ran-out-of-time"){
-            checkDisplay.html(`Sorry, time is up!<br>The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}.</span>`)
+            checkDisplay.html(`Sorry, time is up!<br>The answer was <span class="highlight-answer">${questionPool[questionIndex].correct_answer}.</span>`)
         }
         else {
             console.log("Wrong");
-            checkDisplay.html(`Sorry, you picked the wrong answer!<br>The correct answer was <span class="highlight">${questionPool[questionIndex].correct_answer}.</span>`)
+            checkDisplay.html(`Sorry, you picked the <span class="highlight-correct">wrong</span> answer!<br>The answer was <span class="highlight-answer">${questionPool[questionIndex].correct_answer}.</span>`)
         }
         questionIndex++ //incease index so we can process the next question once this one is answered or runs out of time
         console.log(questionIndex);
@@ -95,7 +100,7 @@ $(document).ready(function(){
         questionDisplay.hide();
         resultDisplay.hide();
         categoryDisplay.show();
-        updateProgress(0);
+        updateProgress(-1);
         correct = 0;
     }
 
