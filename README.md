@@ -1,4 +1,5 @@
 # Trivia Game - Week 5 Homework Assignment
+DEMO: https://stevevillardi.github.io/week5-trivia/
 
 ## Instructions
 Pick from the available difficulties and categories shown to start a trivia game. Each game consists of 10 questions.
